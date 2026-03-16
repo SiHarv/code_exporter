@@ -6,7 +6,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Iterable, Optional
 
-DEFAULT_EXTENSIONS = [".php", ".dart", ".js"]
+DEFAULT_EXTENSIONS = [".php", ".dart", ".js", ".html", ".css"]
 
 # Folder names that should always be excluded when scanning.
 DEFAULT_EXCLUDED_DIR_NAMES = {

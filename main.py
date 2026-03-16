@@ -32,6 +32,7 @@ class CodeExporterApp:
         self.selected_folder = tk.StringVar(value="No folder selected")
         self.filename_var = tk.StringVar(value="")
         self.output_format_var = tk.StringVar(value="TXT")
+        self.custom_extensions_var = tk.StringVar(value="")
 
         self.summary_folder_var = tk.StringVar(value="-")
         self.summary_found_var = tk.StringVar(value="0")
@@ -42,6 +43,8 @@ class CodeExporterApp:
             ".php": tk.BooleanVar(value=True),
             ".dart": tk.BooleanVar(value=True),
             ".js": tk.BooleanVar(value=True),
+            ".html": tk.BooleanVar(value=True),
+            ".css": tk.BooleanVar(value=True),
         }
 
         self._build_ui()
@@ -66,6 +69,13 @@ class CodeExporterApp:
         ttk.Label(ext_frame, text="Include extensions:").pack(side="left", padx=(0, 8))
         for ext, var in self.extension_vars.items():
             ttk.Checkbutton(ext_frame, text=ext, variable=var).pack(side="left", padx=4)
+
+        custom_ext_frame = ttk.Frame(settings_frame)
+        custom_ext_frame.pack(anchor="w", fill="x", pady=(8, 0))
+        ttk.Label(custom_ext_frame, text="Custom extensions (comma-separated):").pack(
+            side="left", padx=(0, 8)
+        )
+        ttk.Entry(custom_ext_frame, textvariable=self.custom_extensions_var, width=40).pack(side="left")
 
         format_frame = ttk.Frame(settings_frame)
         format_frame.pack(anchor="w", fill="x", pady=(8, 0))
@@ -184,6 +194,11 @@ class CodeExporterApp:
 
     def _get_selected_extensions(self) -> set[str]:
         selected = [ext for ext, var in self.extension_vars.items() if var.get()]
+
+        custom_input = self.custom_extensions_var.get().strip()
+        if custom_input:
+            selected.extend(part.strip() for part in custom_input.split(","))
+
         return normalize_extension_list(selected)
 
     def _get_excluded_items(self) -> list[str]:

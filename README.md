@@ -1,6 +1,6 @@
 # Code Exporter (Tkinter)
 
-A beginner-friendly desktop app that scans a root folder recursively and exports source code files (`.php`, `.dart`, `.js`) into:
+A beginner-friendly desktop app that scans a root folder recursively and exports source code files (default: `.php`, `.dart`, `.js`, `.html`, `.css`) into:
 - TXT
 - DOCX
 - PDF
@@ -9,6 +9,7 @@ A beginner-friendly desktop app that scans a root folder recursively and exports
 
 - Choose root folder from GUI
 - Select included extensions with checkboxes
+- Add custom extensions (comma-separated), e.g. `vue, ts, jsx`
 - Choose output format
 - Optional output filename field
 - Editable excluded folders list
