@@ -1,1 +1,5 @@
 dist/
+.venv/
+build/
+main.spec
+code-explorer.spec
