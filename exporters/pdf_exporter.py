@@ -67,12 +67,9 @@ def export_to_pdf(
     draw_line("")
 
     total = len(source_files)
-    separator = "=" * 50
 
     for index, src_file in enumerate(source_files, start=1):
-        draw_line(separator)
         draw_line(f"FILE: {src_file.relative_path}")
-        draw_line(separator)
         draw_line("")
         draw_text_block(src_file.content)
         draw_line("")
