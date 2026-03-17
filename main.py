@@ -117,7 +117,7 @@ class CodeExporterApp:
         action_frame = ttk.Frame(container)
         action_frame.pack(fill="x", pady=8)
 
-        ttk.Button(action_frame, text="Start Export", command=self.start_export).pack(side="left")
+        tk.Button(action_frame, text="Start Export", command=self.start_export, bg="#4CAF50", fg="white").pack(side="left")
         self.progress_var = tk.DoubleVar(value=0.0)
         self.progress = ttk.Progressbar(
             action_frame,
