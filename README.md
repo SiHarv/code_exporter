@@ -57,7 +57,8 @@ code_exporter/
 ## Run Locally (Windows-friendly)
 
 1. Open terminal in the `code_exporter` folder.
-2. Activate your virtual environment.
+2. Generate a virtual Environment
+3. Activate your virtual environment.
 
 ```bash
 # Windows (PowerShell)
@@ -68,6 +69,9 @@ code_exporter/
 
 # Linux
 source .venv/bin/activate
+
+# Mac
+source venv/bin/activate
 ```
 
 3. Install dependencies.
